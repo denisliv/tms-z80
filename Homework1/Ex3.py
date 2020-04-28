@@ -8,4 +8,3 @@ for i in range(n):
         b = x.pop(i)
         x.insert(0, b)
 print(x)
-

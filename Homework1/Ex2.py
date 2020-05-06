@@ -2,8 +2,8 @@
 # Найдите два наибольших числа в этом списке.
 n = int(input("Введите число больше 2: "))
 x = [float(input("Введите число и нажмите Enter: ")) for i in range(n)]
-a = 0
-b = 0
+a = x[1]
+b = x[2]
 for i in x:
     if i > a:
         a, b = i, a

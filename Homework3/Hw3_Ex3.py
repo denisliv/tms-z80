@@ -1,16 +1,16 @@
 # Пользователь непрерывно вводит числа. После каждой итерации выведите список тех чисел,
 # которые пользователь ввел за последние 30 сек.
-
+from collections import deque
 import time
-x = []
+
+values = deque()
 while True:
-    t = time.time()
-    n = input("Введите число: ")
-    x.append((n, t))
-    if n == 'exit':
-        x.pop()
-        break
-y = [int(i[0]) for i in x if time.time() - i[1] <= 30]
-
-print(f"Список введеных за последние 30 сек чисел: {y}")
-
+    n = int(input("Введите число: "))
+    t = int(1000 * time.time())
+    values.append((n, t))
+    while len(values):
+        value = values[0]
+        if t - value[1] < 5000:
+            break
+        values.popleft()
+    print(list(map(lambda x: x[0], values)))

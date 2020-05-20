@@ -13,4 +13,4 @@ while lo != hi:
         lo = mid + 1
     else:
         hi = mid
-print(lo)
+print(f'Индекс числа {y} равен {lo}')

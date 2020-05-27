@@ -4,7 +4,7 @@ from functools import reduce
 
 def multiply(f):
     def wrapper(*args):
-        f(reduce(lambda x, y: x * y, args))
+        return f(reduce(lambda x, y: x * y, args))
     return wrapper
 
 

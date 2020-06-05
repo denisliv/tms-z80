@@ -1,7 +1,6 @@
 class readonly(object):
-    def __init__(self, func, fset=None):
+    def __init__(self, func):
         self.func = func
-        self.fset = fset
 
     def __get__(self, obj, owner=None):
         if obj is None:
@@ -10,8 +9,7 @@ class readonly(object):
             return self.func(obj)
 
     def __set__(self, obj, value):
-        if self.fset is None:
-            raise AttributeError
+        raise AttributeError
 
 
 

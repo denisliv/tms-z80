@@ -54,8 +54,8 @@ class Rectangle(Shape):  # прямоугольник
 
     # @classmethod
     # def input(cls):
-    #     w, h = int(input())
-    #     return Rectangle()
+    #     w, h = int(input("Введите размеры прямоугольника: "))
+    #     return Rectangle(w, h)
 
 
 class Square(Rectangle):  # квадрат
@@ -93,8 +93,8 @@ class Circle(Shape):  # круг
 
     def draw(self):
         window.draw_ellipse((self.x - self.radius, self.y - self.radius),
-                              (self.radius, self.radius),
-                              color='green')
+                            (self.radius, self.radius),
+                            color='green')
 
     def top(self):
         return self.y - self.radius
@@ -146,10 +146,13 @@ class Triangle(Shape):  # равносторонний треугольник
     #     return Rectangle()
 
 
-rect = Rectangle(400, 300, 40, 60)
-square = Square(500, 600, 80)
-circle = Circle(350, 280, 75)
-triangle = Triangle(350, 280, 90)
+x = random.randrange(600)
+y = random.randrange(600)
+
+rect = Rectangle(x, y, 40, 60)
+square = Square(x, y, 80)
+circle = Circle(x, y, 75)
+triangle = Triangle(x, y, 90)
 
 velocity_rx = 4
 velocity_ry = 6

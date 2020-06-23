@@ -74,14 +74,11 @@ class Serializable(object):
     @classmethod
     def load(cls, data: bytes) -> 'Test':
         x = {}
-        a = {}
         for key, value in cls.__dict__.items():
             if isinstance(value, Field):
-                x[key] = value
-        for key, value in x.items():
-            a[key] = value.load(data)
+                x[key] = value.load(data)
         obj = Test.__new__(Test)
-        obj.__dict__.update(a)
+        obj.__dict__.update(x)
         return obj
 
 
